@@ -11,7 +11,7 @@
     <dateTimeUpload></dateTimeUpload>
     <description></description>
     <deviceName>RMX3834</deviceName>
-    <gitRemoteUrl></gitRemoteUrl>
+    <gitRemoteUrl>https://github.com/Grushdeck/Windows-10-simulator.git</gitRemoteUrl>
     <isCastProject>false</isCastProject>
     <landscapeMode>false</landscapeMode>
     <listeningLanguageTag></listeningLanguageTag>
@@ -81,25 +81,25 @@
                       <brickId>4e48393b-d259-44fa-883a-8a39cb441945</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
-                        <formula category="FILE">
-                          <additionalChildren/>
-                          <type>STRING</type>
-                          <value>rmono.ttf</value>
-                        </formula>
                         <formula category="COLOR">
                           <additionalChildren/>
                           <type>STRING</type>
                           <value>#FFFFFF</value>
                         </formula>
-                        <formula category="X_POSITION">
+                        <formula category="FILE">
                           <additionalChildren/>
-                          <rightChild>
-                            <additionalChildren/>
-                            <type>NUMBER</type>
-                            <value>700</value>
-                          </rightChild>
-                          <type>OPERATOR</type>
-                          <value>MINUS</value>
+                          <type>STRING</type>
+                          <value>rmono.ttf</value>
+                        </formula>
+                        <formula category="SIZE">
+                          <additionalChildren/>
+                          <type>NUMBER</type>
+                          <value>50</value>
+                        </formula>
+                        <formula category="Y_POSITION">
+                          <additionalChildren/>
+                          <type>NUMBER</type>
+                          <value>208</value>
                         </formula>
                         <formula category="NAME">
                           <additionalChildren/>
@@ -111,15 +111,15 @@
                           <type>USER_VARIABLE</type>
                           <value>boot_loader</value>
                         </formula>
-                        <formula category="Y_POSITION">
+                        <formula category="X_POSITION">
                           <additionalChildren/>
-                          <type>NUMBER</type>
-                          <value>208</value>
-                        </formula>
-                        <formula category="SIZE">
-                          <additionalChildren/>
-                          <type>NUMBER</type>
-                          <value>50</value>
+                          <rightChild>
+                            <additionalChildren/>
+                            <type>NUMBER</type>
+                            <value>700</value>
+                          </rightChild>
+                          <type>OPERATOR</type>
+                          <value>MINUS</value>
                         </formula>
                       </formulaList>
                       <userVariable type="UserVariable" serialization="custom">
@@ -149,15 +149,19 @@
                     <formula category="VARIABLE">
                       <additionalChildren/>
                       <type>STRING</type>
-                      <value>Initializing System...
-BIOS Date: 10/24/2025
-CPU: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz
-Memory Check: 16384MB OK
+                      <value>Scanning System...
+BIOS Date: 01/01/2025
+CPU: MrCode(R) MiniCore(TM)
+Memory Check: 4000MB OK
 Detecting Hard Drive...
-Hard Drive: SAMSUNG SSD 970 EVO Plus 1TB
+Hard Drive: MrCode_minissd_beta
+Core architecture: x86_64
 Loading Boot Sector...
 Booting Windows 10 Simulator...
-Please wait while the system prepares for first use.</value>
+Please wait while the system prepares for first use.
+
+
+click &lt;del&gt; to enter in bios</value>
                     </formula>
                   </formulaList>
                   <userVariable reference="../../../../script[2]/brickList/brick[2]/loopBricks/brick/userVariable"/>
@@ -169,7 +173,7 @@ Please wait while the system prepares for first use.</value>
                     <formula category="TIME_TO_WAIT_IN_SECONDS">
                       <additionalChildren/>
                       <type>NUMBER</type>
-                      <value>2</value>
+                      <value>3.5</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -208,6 +212,11 @@ Please wait while the system prepares for first use.</value>
                   </formulaList>
                 </brick>
                 <brick type="BroadcastBrick">
+                  <brickId>304b362a-118a-451d-ac45-e393724f9458</brickId>
+                  <commentedOut>false</commentedOut>
+                  <broadcastMessage>finish_start</broadcastMessage>
+                </brick>
+                <brick type="BroadcastBrick">
                   <brickId>5e57af8a-d9ac-478f-85b4-cc8ee45218f5</brickId>
                   <commentedOut>false</commentedOut>
                   <broadcastMessage>starting_load_system</broadcastMessage>
@@ -216,6 +225,18 @@ Please wait while the system prepares for first use.</value>
               <commentedOut>false</commentedOut>
               <scriptId>1dbff01a-18ca-497d-8d3a-6dee7f77c9b2</scriptId>
               <receivedMessage>boot_starting</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="SceneTransitionBrick">
+                  <brickId>0505f7a9-ad31-4ac4-8b1b-2fb326a2d2d2</brickId>
+                  <commentedOut>false</commentedOut>
+                  <sceneForTransition>bios</sceneForTransition>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>3aa1663d-be65-4e52-b446-a4be0fa6faf4</scriptId>
+              <receivedMessage>bios_enter</receivedMessage>
             </script>
             <script type="BroadcastScript" posX="0.0" posY="0.0">
               <brickList>
@@ -254,6 +275,11 @@ Please wait while the system prepares for first use.</value>
                   <brickId>f89d7242-9268-4214-9be4-9ea8a28aec59</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>316</value>
+                    </formula>
                     <formula category="X_POSITION">
                       <additionalChildren/>
                       <rightChild>
@@ -263,11 +289,6 @@ Please wait while the system prepares for first use.</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
-                    </formula>
-                    <formula category="Y_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>316</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -337,15 +358,15 @@ Please wait while the system prepares for first use.</value>
                   <brickId>a934ad45-2445-4a7d-84fd-342669e4050e</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>0</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <type>NUMBER</type>
                       <value>120</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>0</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -418,11 +439,6 @@ Please wait while the system prepares for first use.</value>
                   <brickId>c97d7732-7c5d-4605-ba28-10b68dce8581</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>0</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
@@ -432,6 +448,11 @@ Please wait while the system prepares for first use.</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>0</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -493,6 +514,103 @@ Please wait while the system prepares for first use.</value>
           <userLists/>
           <userDefinedBrickList/>
         </object>
+        <object type="Sprite" spriteId="7341d0bb-50cd-47aa-bb9b-2363d780c3a4" name="&lt;del&gt;">
+          <lookList>
+            <look fileName="Мой актер или объект_#1.png" lookId="2a477abb-e631-4248-baba-69639ff52caa" name="&lt;del&gt;">
+              <isWebRequest>false</isWebRequest>
+              <valid>true</valid>
+            </look>
+          </lookList>
+          <soundList/>
+          <scriptList>
+            <script type="StartScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="PlaceAtBrick">
+                  <brickId>371564a9-21b2-463a-b02e-9741dd3cdc07</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>225</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>555</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="PointInDirectionBrick">
+                  <brickId>2c009c61-4780-496a-a118-388f7167ac16</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="DEGREES">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>90.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="SetSizeToBrick">
+                  <brickId>f125ab20-3153-4a96-97df-f34f4d07c7ff</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="SIZE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>100.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>a14887f4-53ef-4ed8-b9ba-b12a72733b79</scriptId>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideBrick">
+                  <brickId>99506a44-f1d6-4a65-9e13-cf96edf6208e</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>49b8eccb-9750-4fdb-b336-002d99be117a</scriptId>
+              <receivedMessage>finish_start</receivedMessage>
+            </script>
+            <script type="WhenScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="WaitBrick">
+                  <brickId>4a1df0d1-8f93-40ca-8ab5-f5cc701e05e2</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="TIME_TO_WAIT_IN_SECONDS">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>0.5</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="BroadcastBrick">
+                  <brickId>6a0b0b96-d92e-478f-a921-a16b57ed584b</brickId>
+                  <commentedOut>false</commentedOut>
+                  <broadcastMessage>bios_enter</broadcastMessage>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>4cc08587-aebb-48f9-8d5b-844c2a7cfad5</scriptId>
+            </script>
+          </scriptList>
+          <nfcTagList/>
+          <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
       </objectList>
     </scene>
     <scene sceneId="5f108de1-b364-494f-97aa-412a70ee0603">
@@ -508,7 +626,7 @@ Please wait while the system prepares for first use.</value>
               <isWebRequest>false</isWebRequest>
               <valid>true</valid>
             </look>
-            <look fileName="1000204279_#1.png" lookId="e9c37e26-7c40-496d-9e20-88105932f079" name="1000204279 (1)">
+            <look fileName="Фон.png" lookId="eaa20895-2060-4843-8b76-2a9bea1a7b36" name="Фон">
               <isWebRequest>false</isWebRequest>
               <valid>true</valid>
             </look>
@@ -525,6 +643,28 @@ Please wait while the system prepares for first use.</value>
               <commentedOut>false</commentedOut>
               <scriptId>9ac030ef-4d11-4e62-9554-be0c8abc3bd2</scriptId>
               <receivedMessage>starting</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="ShowBrick">
+                  <brickId>16f09b6e-dacd-4a6e-ac0c-895393a6ac99</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>6245465c-ddbd-43da-a3c3-27ded6373767</scriptId>
+              <receivedMessage>show_interface</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideBrick">
+                  <brickId>ae56a1d4-0932-4a96-aa31-de3879fe70cd</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>eb8aecb2-139a-40e5-af90-bcd135d10c3d</scriptId>
+              <receivedMessage>hide_interface</receivedMessage>
             </script>
             <script type="BroadcastScript" posX="0.0" posY="0.0">
               <brickList>
@@ -553,35 +693,35 @@ Please wait while the system prepares for first use.</value>
                   <brickId>807e5569-ccd4-4015-ae5e-5995c2406a37</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
+                    <formula category="POSX">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>30</value>
+                    </formula>
                     <formula category="POSY">
                       <additionalChildren/>
                       <type>NUMBER</type>
                       <value>36</value>
-                    </formula>
-                    <formula category="URL">
-                      <additionalChildren/>
-                      <type>STRING</type>
-                      <value>https://google.com</value>
                     </formula>
                     <formula category="WIDTH">
                       <additionalChildren/>
                       <type>NUMBER</type>
                       <value>474</value>
                     </formula>
+                    <formula category="HEIGHT">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>354</value>
+                    </formula>
                     <formula category="NAME">
                       <additionalChildren/>
                       <type>STRING</type>
                       <value>chrome_window</value>
                     </formula>
-                    <formula category="POSX">
+                    <formula category="URL">
                       <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>30</value>
-                    </formula>
-                    <formula category="HEIGHT">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>354</value>
+                      <type>STRING</type>
+                      <value>https://google.com</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -633,15 +773,15 @@ Please wait while the system prepares for first use.</value>
                   <brickId>a43d14c0-5cb1-4ab5-93cc-fa63f1bf5454</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>361</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <type>NUMBER</type>
                       <value>76</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>361</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -677,6 +817,125 @@ Please wait while the system prepares for first use.</value>
           <userLists/>
           <userDefinedBrickList/>
         </object>
+        <object type="Sprite" spriteId="83ccd617-e57c-4fd0-a5fc-063c40ba0aff" name="terminal_window">
+          <lookList/>
+          <soundList/>
+          <scriptList>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="RunVMBrick">
+                  <brickId>c144fe98-5569-48e6-83f4-1d9e1a47aa67</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="VM_CPU">
+                      <additionalChildren/>
+                      <type>STRING</type>
+                      <value>2</value>
+                    </formula>
+                    <formula category="VM_HDA">
+                      <additionalChildren/>
+                      <type>STRING</type>
+                      <value></value>
+                    </formula>
+                    <formula category="VM_CDROM">
+                      <additionalChildren/>
+                      <type>STRING</type>
+                      <value>Core-16.2.iso</value>
+                    </formula>
+                    <formula category="VM_MEMORY">
+                      <additionalChildren/>
+                      <type>STRING</type>
+                      <value>1024</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="SendVmInputBrick">
+                  <brickId>a8381936-c3e6-4857-add4-f694d919e4b4</brickId>
+                  <commentedOut>true</commentedOut>
+                  <formulaList>
+                    <formula category="INPUT_TEXT">
+                      <additionalChildren/>
+                      <type>STRING</type>
+                      <value>&lt;ENTER&gt;</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="BroadcastBrick">
+                  <brickId>2d8dd234-f9d9-4816-8caa-7d0973dd29a5</brickId>
+                  <commentedOut>false</commentedOut>
+                  <broadcastMessage>hide_interface</broadcastMessage>
+                </brick>
+                <brick type="BroadcastBrick">
+                  <brickId>bad34195-4ba8-42fa-a20b-6de0906e49d3</brickId>
+                  <commentedOut>false</commentedOut>
+                  <broadcastMessage>hide_todo_panel</broadcastMessage>
+                </brick>
+                <brick type="ToggleDisplayBrick">
+                  <brickId>789626a8-9a47-4853-83a1-b52bda86e0f2</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="VALUE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>1</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>66dc364d-1aa6-4f10-9502-3ba2cbb4ea6f</scriptId>
+              <receivedMessage>open_terminal</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="StopVMBrick">
+                  <brickId>c6820645-449b-41d2-bde8-b46003ab4141</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList/>
+                </brick>
+                <brick type="WaitBrick">
+                  <brickId>12c4b448-d939-4038-a2ef-bc38d5addc21</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="TIME_TO_WAIT_IN_SECONDS">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>0.5</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="ToggleDisplayBrick">
+                  <brickId>e75ed3a0-9270-490b-aabb-0d98ad1de17c</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="VALUE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="BroadcastBrick">
+                  <brickId>3e2acc4a-dadf-4c52-a388-8570993e5ea7</brickId>
+                  <commentedOut>false</commentedOut>
+                  <broadcastMessage>show_interface</broadcastMessage>
+                </brick>
+                <brick type="BroadcastBrick">
+                  <brickId>46396f26-e071-480c-b88e-b8f94fb45d5c</brickId>
+                  <commentedOut>false</commentedOut>
+                  <broadcastMessage>show_todo_panel</broadcastMessage>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>c6939b91-75fa-4fcf-9a68-c120d6aedf6d</scriptId>
+              <receivedMessage>close_terminal</receivedMessage>
+            </script>
+          </scriptList>
+          <nfcTagList/>
+          <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
         <object type="Sprite" spriteId="34632484-a887-4745-b814-8f0fcfaa940f" name="start_menu">
           <lookList>
             <look fileName="Мой актер или объект_#1.png" lookId="dcad4f97-f52c-4f78-a938-51c2aa22d00f" name="start_menu">
@@ -692,22 +951,22 @@ Please wait while the system prepares for first use.</value>
                   <brickId>8bd47354-2a7c-4195-8bcf-decdb534de53</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <rightChild>
-                        <additionalChildren/>
-                        <type>NUMBER</type>
-                        <value>540</value>
-                      </rightChild>
-                      <type>OPERATOR</type>
-                      <value>MINUS</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
                         <additionalChildren/>
                         <type>NUMBER</type>
                         <value>518</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>540</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
@@ -765,11 +1024,6 @@ Please wait while the system prepares for first use.</value>
                       <brickId>16e1120b-57fa-4009-85d7-e949be1e7617</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
-                        <formula category="DURATION_IN_SECONDS">
-                          <additionalChildren/>
-                          <type>NUMBER</type>
-                          <value>0.5</value>
-                        </formula>
                         <formula category="Y_DESTINATION">
                           <additionalChildren/>
                           <rightChild>
@@ -779,6 +1033,11 @@ Please wait while the system prepares for first use.</value>
                           </rightChild>
                           <type>OPERATOR</type>
                           <value>MINUS</value>
+                        </formula>
+                        <formula category="DURATION_IN_SECONDS">
+                          <additionalChildren/>
+                          <type>NUMBER</type>
+                          <value>0.5</value>
                         </formula>
                         <formula category="X_DESTINATION">
                           <additionalChildren/>
@@ -818,15 +1077,15 @@ Please wait while the system prepares for first use.</value>
                       <brickId>0cb0a3f0-2a16-4d35-b06c-5e45b733e74b</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
-                        <formula category="DURATION_IN_SECONDS">
-                          <additionalChildren/>
-                          <type>NUMBER</type>
-                          <value>0.5</value>
-                        </formula>
                         <formula category="Y_DESTINATION">
                           <additionalChildren/>
                           <type>NUMBER</type>
                           <value>0</value>
+                        </formula>
+                        <formula category="DURATION_IN_SECONDS">
+                          <additionalChildren/>
+                          <type>NUMBER</type>
+                          <value>0.5</value>
                         </formula>
                         <formula category="X_DESTINATION">
                           <additionalChildren/>
@@ -891,22 +1150,22 @@ Please wait while the system prepares for first use.</value>
                   <brickId>cfc882eb-1f8e-4b4f-82ab-76c4a4e2aa86</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <rightChild>
-                        <additionalChildren/>
-                        <type>NUMBER</type>
-                        <value>439</value>
-                      </rightChild>
-                      <type>OPERATOR</type>
-                      <value>MINUS</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
                         <additionalChildren/>
                         <type>NUMBER</type>
                         <value>157</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>439</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
@@ -986,6 +1245,11 @@ Please wait while the system prepares for first use.</value>
                   <brickId>d1140729-27d0-43c6-b7dc-4e8555477d7a</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>219</value>
+                    </formula>
                     <formula category="X_POSITION">
                       <additionalChildren/>
                       <rightChild>
@@ -995,11 +1259,6 @@ Please wait while the system prepares for first use.</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
-                    </formula>
-                    <formula category="Y_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>219</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -1129,6 +1388,11 @@ Please wait while the system prepares for first use.</value>
                   <brickId>db2dba56-a4c0-4393-a56e-a2c84e139795</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>83</value>
+                    </formula>
                     <formula category="X_POSITION">
                       <additionalChildren/>
                       <rightChild>
@@ -1138,11 +1402,6 @@ Please wait while the system prepares for first use.</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
-                    </formula>
-                    <formula category="Y_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>83</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -1283,11 +1542,6 @@ Please wait while the system prepares for first use.</value>
                   <brickId>cc21b2e9-1d7d-455d-84d6-1e43ece7848b</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>0</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
@@ -1298,11 +1552,38 @@ Please wait while the system prepares for first use.</value>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
                     </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>0</value>
+                    </formula>
                   </formulaList>
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
               <scriptId>458949a6-94dd-4c26-a96f-e8a65dea2f60</scriptId>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="ShowBrick">
+                  <brickId>5ccb37f2-79bb-47c4-9684-e82a2da90d93</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>8745616d-f4a7-47f4-8866-5d9fa500c93c</scriptId>
+              <receivedMessage>show_todo_panel</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideBrick">
+                  <brickId>dd2440b5-8dd7-4b5b-ad1c-1a5fe277d5e8</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>bef41780-e136-4736-9893-169bfbc1e3b2</scriptId>
+              <receivedMessage>hide_todo_panel</receivedMessage>
             </script>
             <script type="BroadcastScript" posX="0.0" posY="0.0">
               <brickList>
@@ -1318,195 +1599,6 @@ Please wait while the system prepares for first use.</value>
           </scriptList>
           <nfcTagList/>
           <userVariables/>
-          <userLists/>
-          <userDefinedBrickList/>
-        </object>
-        <object type="Sprite" spriteId="bfefe84f-ddde-4893-87bc-f44a4b252753" name="time">
-          <lookList/>
-          <soundList/>
-          <scriptList>
-            <script type="BroadcastScript" posX="0.0" posY="0.0">
-              <brickList>
-                <brick type="ShowTextColorSizeAlignmentBrick">
-                  <brickId>fa034d42-3ecc-46b0-8644-1ed3b02650da</brickId>
-                  <commentedOut>false</commentedOut>
-                  <formulaList>
-                    <formula category="COLOR">
-                      <additionalChildren/>
-                      <type>STRING</type>
-                      <value>#A3A3A3</value>
-                    </formula>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>636</value>
-                    </formula>
-                    <formula category="Y_POSITION">
-                      <additionalChildren/>
-                      <rightChild>
-                        <additionalChildren/>
-                        <type>NUMBER</type>
-                        <value>310</value>
-                      </rightChild>
-                      <type>OPERATOR</type>
-                      <value>MINUS</value>
-                    </formula>
-                    <formula category="SIZE">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>110</value>
-                    </formula>
-                  </formulaList>
-                  <userVariable type="UserVariable" serialization="custom">
-                    <userVariable>
-                      <default>
-                        <initialIndex>0</initialIndex>
-                        <deviceValueKey>0227a819-cb01-4ec4-9ce9-1f143991644c</deviceValueKey>
-                        <name>time</name>
-                      </default>
-                    </userVariable>
-                  </userVariable>
-                  <alignmentSelection>1</alignmentSelection>
-                </brick>
-                <brick type="ForeverBrick">
-                  <brickId>09c3171e-78d2-4c4f-a0e9-1207c8a2a668</brickId>
-                  <commentedOut>false</commentedOut>
-                  <loopBricks>
-                    <brick type="SetVariableBrick">
-                      <brickId>bb3a8be3-9b16-4279-be1a-67f7e3f6d995</brickId>
-                      <commentedOut>false</commentedOut>
-                      <formulaList>
-                        <formula category="VARIABLE">
-                          <additionalChildren/>
-                          <type>SENSOR</type>
-                          <value>TIME_MINUTE</value>
-                        </formula>
-                      </formulaList>
-                      <userVariable type="UserVariable" serialization="custom">
-                        <userVariable>
-                          <default>
-                            <initialIndex>1</initialIndex>
-                            <deviceValueKey>1ebeb16d-1ead-4b2a-abfe-af46a0b4e17b</deviceValueKey>
-                            <name>minutes</name>
-                          </default>
-                        </userVariable>
-                      </userVariable>
-                    </brick>
-                    <brick type="IfLogicBeginBrick">
-                      <brickId>9aa1f9e5-6891-4c7c-94aa-f4fd227d58c4</brickId>
-                      <commentedOut>false</commentedOut>
-                      <formulaList>
-                        <formula category="IF_CONDITION">
-                          <additionalChildren/>
-                          <leftChild>
-                            <additionalChildren/>
-                            <type>USER_VARIABLE</type>
-                            <value>minutes</value>
-                          </leftChild>
-                          <rightChild>
-                            <additionalChildren/>
-                            <type>NUMBER</type>
-                            <value>10</value>
-                          </rightChild>
-                          <type>OPERATOR</type>
-                          <value>SMALLER_THAN</value>
-                        </formula>
-                      </formulaList>
-                      <elseBranchBricks>
-                        <brick type="SetVariableBrick">
-                          <brickId>64c118aa-b205-432c-9cd8-0f2b9142a69e</brickId>
-                          <commentedOut>false</commentedOut>
-                          <formulaList>
-                            <formula category="VARIABLE">
-                              <additionalChildren>
-                                <org.catrobat.catroid.formulaeditor.FormulaElement>
-                                  <additionalChildren/>
-                                  <type>USER_VARIABLE</type>
-                                  <value>minutes</value>
-                                </org.catrobat.catroid.formulaeditor.FormulaElement>
-                              </additionalChildren>
-                              <leftChild>
-                                <additionalChildren/>
-                                <type>SENSOR</type>
-                                <value>TIME_HOUR</value>
-                              </leftChild>
-                              <rightChild>
-                                <additionalChildren/>
-                                <type>STRING</type>
-                                <value>:</value>
-                              </rightChild>
-                              <type>FUNCTION</type>
-                              <value>JOIN3</value>
-                            </formula>
-                          </formulaList>
-                          <userVariable reference="../../../../../../brick/userVariable"/>
-                        </brick>
-                        <brick type="ForeverBrick">
-                          <brickId>bf8fd189-dab3-4b1c-9dfb-64c74c5cda05</brickId>
-                          <commentedOut>false</commentedOut>
-                          <loopBricks/>
-                        </brick>
-                      </elseBranchBricks>
-                      <ifBranchBricks>
-                        <brick type="ForeverBrick">
-                          <brickId>f3e83990-63b5-471c-8a1a-ece2250926f3</brickId>
-                          <commentedOut>false</commentedOut>
-                          <loopBricks>
-                            <brick type="SetVariableBrick">
-                              <brickId>c4d69ce2-c8bb-4335-b040-229be80baef6</brickId>
-                              <commentedOut>false</commentedOut>
-                              <formulaList>
-                                <formula category="VARIABLE">
-                                  <additionalChildren>
-                                    <org.catrobat.catroid.formulaeditor.FormulaElement>
-                                      <additionalChildren/>
-                                      <leftChild>
-                                        <additionalChildren/>
-                                        <type>NUMBER</type>
-                                        <value>0</value>
-                                      </leftChild>
-                                      <rightChild>
-                                        <additionalChildren/>
-                                        <type>USER_VARIABLE</type>
-                                        <value>minutes</value>
-                                      </rightChild>
-                                      <type>FUNCTION</type>
-                                      <value>JOIN</value>
-                                    </org.catrobat.catroid.formulaeditor.FormulaElement>
-                                  </additionalChildren>
-                                  <leftChild>
-                                    <additionalChildren/>
-                                    <type>SENSOR</type>
-                                    <value>TIME_HOUR</value>
-                                  </leftChild>
-                                  <rightChild>
-                                    <additionalChildren/>
-                                    <type>STRING</type>
-                                    <value>:</value>
-                                  </rightChild>
-                                  <type>FUNCTION</type>
-                                  <value>JOIN3</value>
-                                </formula>
-                              </formulaList>
-                              <userVariable reference="../../../../../../../../brick/userVariable"/>
-                            </brick>
-                          </loopBricks>
-                        </brick>
-                      </ifBranchBricks>
-                    </brick>
-                  </loopBricks>
-                </brick>
-              </brickList>
-              <commentedOut>false</commentedOut>
-              <scriptId>f6820b26-eae1-4e5e-a71b-cc33c8d7ec42</scriptId>
-              <receivedMessage>work_table_start</receivedMessage>
-            </script>
-          </scriptList>
-          <nfcTagList/>
-          <userVariables>
-            <userVariable reference="../../scriptList/script/brickList/brick/userVariable"/>
-            <userVariable reference="../../scriptList/script/brickList/brick[2]/loopBricks/brick/userVariable"/>
-          </userVariables>
           <userLists/>
           <userDefinedBrickList/>
         </object>
@@ -1544,16 +1636,6 @@ Please wait while the system prepares for first use.</value>
                   <brickId>e495dddc-2922-400a-abed-aa6dfaa2fcda</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <rightChild>
-                        <additionalChildren/>
-                        <type>NUMBER</type>
-                        <value>350</value>
-                      </rightChild>
-                      <type>OPERATOR</type>
-                      <value>MINUS</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
@@ -1564,11 +1646,43 @@ Please wait while the system prepares for first use.</value>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
                     </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>350</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
                   </formulaList>
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
               <scriptId>0de79253-11f2-4798-89cb-752d20adcc52</scriptId>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideBrick">
+                  <brickId>cdec58f1-6240-42b2-97f4-9fcf9ddee903</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>ad0355e4-d5b1-4c8f-9ae2-7ecedc4580c6</scriptId>
+              <receivedMessage>hide_todo_panel</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="ShowBrick">
+                  <brickId>ad14a2bd-6c8c-42b1-b8b7-dbf4948c135e</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>5fed2e53-c7d9-4b74-8728-fecdde04a071</scriptId>
+              <receivedMessage>show_todo_panel</receivedMessage>
             </script>
             <script type="BroadcastScript" posX="0.0" posY="0.0">
               <brickList>
@@ -1667,7 +1781,7 @@ Please wait while the system prepares for first use.</value>
           </scriptList>
           <nfcTagList/>
           <userVariables>
-            <userVariable reference="../../scriptList/script[3]/brickList/brick/elseBranchBricks/brick/userVariable"/>
+            <userVariable reference="../../scriptList/script[5]/brickList/brick/elseBranchBricks/brick/userVariable"/>
           </userVariables>
           <userLists/>
           <userDefinedBrickList/>
@@ -1695,22 +1809,22 @@ Please wait while the system prepares for first use.</value>
                   <brickId>edb6806d-b517-44f0-9998-897d202a8104</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <rightChild>
-                        <additionalChildren/>
-                        <type>NUMBER</type>
-                        <value>490</value>
-                      </rightChild>
-                      <type>OPERATOR</type>
-                      <value>MINUS</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
                         <additionalChildren/>
                         <type>NUMBER</type>
                         <value>303</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>490</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
@@ -1731,6 +1845,28 @@ Please wait while the system prepares for first use.</value>
               </brickList>
               <commentedOut>false</commentedOut>
               <scriptId>96fc2ede-1f03-4de9-9b32-dc972613fd55</scriptId>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideBrick">
+                  <brickId>a636f564-5461-4f1c-bf31-01ad122aec27</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>59118e7b-1fd8-4830-a30e-cb45cd820989</scriptId>
+              <receivedMessage>hide_todo_panel</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="ShowBrick">
+                  <brickId>0167a48b-6de8-449a-a1d7-a2973eca98be</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>ce484656-fe9b-4d38-8449-6cfbeb0b6bfc</scriptId>
+              <receivedMessage>show_todo_panel</receivedMessage>
             </script>
             <script type="BroadcastScript" posX="0.0" posY="0.0">
               <brickList>
@@ -1829,7 +1965,7 @@ Please wait while the system prepares for first use.</value>
           </scriptList>
           <nfcTagList/>
           <userVariables>
-            <userVariable reference="../../scriptList/script[3]/brickList/brick/elseBranchBricks/brick/userVariable"/>
+            <userVariable reference="../../scriptList/script[5]/brickList/brick/elseBranchBricks/brick/userVariable"/>
           </userVariables>
           <userLists/>
           <userDefinedBrickList/>
@@ -1857,22 +1993,22 @@ Please wait while the system prepares for first use.</value>
                   <brickId>5f1e94c6-4c50-4a6b-ba3f-888708626d92</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <rightChild>
-                        <additionalChildren/>
-                        <type>NUMBER</type>
-                        <value>210</value>
-                      </rightChild>
-                      <type>OPERATOR</type>
-                      <value>MINUS</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
                         <additionalChildren/>
                         <type>NUMBER</type>
                         <value>303</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>210</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
@@ -1998,6 +2134,10 @@ Please wait while the system prepares for first use.</value>
         </object>
         <object type="Sprite" spriteId="f358524d-78f4-497a-9ca8-90639501acb4" name="start">
           <lookList>
+            <look fileName="1000204279_#2.png" lookId="12b165b8-4c83-4114-bbd9-9021d4f9e676" name="start (1)">
+              <isWebRequest>false</isWebRequest>
+              <valid>true</valid>
+            </look>
             <look fileName="1000204279_#0.png" lookId="06389df6-e788-4013-bf62-40baab38ce19" name="start">
               <isWebRequest>false</isWebRequest>
               <valid>true</valid>
@@ -2011,22 +2151,22 @@ Please wait while the system prepares for first use.</value>
                   <brickId>fb9195a9-8668-4b29-be37-a7442ac18173</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <rightChild>
-                        <additionalChildren/>
-                        <type>NUMBER</type>
-                        <value>680</value>
-                      </rightChild>
-                      <type>OPERATOR</type>
-                      <value>MINUS</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
                         <additionalChildren/>
                         <type>NUMBER</type>
                         <value>300</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>680</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
@@ -2043,6 +2183,28 @@ Please wait while the system prepares for first use.</value>
             </script>
             <script type="BroadcastScript" posX="0.0" posY="0.0">
               <brickList>
+                <brick type="HideBrick">
+                  <brickId>b3eabf25-f3a8-4eb7-b347-43c619cf4450</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>a056206d-e108-4bd4-93ce-efeab0f91e35</scriptId>
+              <receivedMessage>hide_todo_panel</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="ShowBrick">
+                  <brickId>96c96d1a-a135-4e54-acfb-2587bbab93b7</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>4036f8c4-76a2-46fc-9200-20bac7456ab1</scriptId>
+              <receivedMessage>show_todo_panel</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
                 <brick type="ShowBrick">
                   <brickId>1fbdbc35-d5e0-4a6f-ab0b-844a55d89886</brickId>
                   <commentedOut>false</commentedOut>
@@ -2054,6 +2216,32 @@ Please wait while the system prepares for first use.</value>
             </script>
             <script type="WhenScript" posX="0.0" posY="0.0">
               <brickList>
+                <brick type="SetLookBrick">
+                  <brickId>78f87d44-6047-4f95-8871-6687f0b4cb41</brickId>
+                  <commentedOut>false</commentedOut>
+                  <look reference="../../../../../lookList/look[2]"/>
+                </brick>
+                <brick type="WaitUntilBrick">
+                  <brickId>02320135-fff0-4e8c-b087-473c17364564</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="IF_CONDITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>SENSOR</type>
+                        <value>COLLIDES_WITH_FINGER</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>LOGICAL_NOT</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="SetLookBrick">
+                  <brickId>8c1ab7ae-5011-4b5a-9c91-193271829cef</brickId>
+                  <commentedOut>false</commentedOut>
+                  <look reference="../../../../../lookList/look"/>
+                </brick>
                 <brick type="BroadcastBrick">
                   <brickId>830f56a2-eefe-479c-b31f-027a0da30416</brickId>
                   <commentedOut>false</commentedOut>
@@ -2066,6 +2254,669 @@ Please wait while the system prepares for first use.</value>
           </scriptList>
           <nfcTagList/>
           <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
+        <object type="Sprite" spriteId="044012bf-8184-449d-8308-a1ab9e3c1548" name="time (1)">
+          <lookList>
+            <look fileName="Мой актер или объект_#2.png" lookId="acbb1874-74e5-47a0-a8e0-775702c8ee5f" name="programms_panel">
+              <isWebRequest>false</isWebRequest>
+              <valid>true</valid>
+            </look>
+          </lookList>
+          <soundList/>
+          <scriptList>
+            <script type="StartScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideBrick">
+                  <brickId>2d3312c4-7e24-40c7-8138-ab6488379cbd</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>cf994c8b-c51f-4365-a927-588943522e61</scriptId>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="PlaceAtBrick">
+                  <brickId>4aef0196-059b-40ba-bb68-7463d0511c59</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>130</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>615</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="PointInDirectionBrick">
+                  <brickId>389f0977-739e-4e59-a8a8-e043cbc2bbfd</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="DEGREES">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>90.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="SetSizeToBrick">
+                  <brickId>daae04cc-4ad4-414d-8567-86712acd61fe</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="SIZE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>100.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="HideBrick">
+                  <brickId>51fea64b-62a3-4b18-a350-0e0836866d29</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>3285092a-f546-453d-94d5-bd628bd854c0</scriptId>
+              <receivedMessage>work_table_start</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideBrick">
+                  <brickId>fe8fa861-f492-4244-b940-433d17a558ca</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>6fa57782-d2f4-4f8e-96dc-365bb536f10c</scriptId>
+              <receivedMessage>close_clock</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="ShowBrick">
+                  <brickId>1c7123ea-060b-4ebb-8cfb-c115ead5d25a</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>dc649e1d-7713-4eaa-b8be-faaf3260ad58</scriptId>
+              <receivedMessage>open_clock</receivedMessage>
+            </script>
+          </scriptList>
+          <nfcTagList/>
+          <userVariables>
+            <userVariable type="UserVariable" serialization="custom">
+              <userVariable>
+                <default>
+                  <initialIndex>-1</initialIndex>
+                  <deviceValueKey>1cd040f5-6610-489c-b2c5-270bb8a38e98</deviceValueKey>
+                  <name>time</name>
+                </default>
+              </userVariable>
+            </userVariable>
+            <userVariable type="UserVariable" serialization="custom">
+              <userVariable>
+                <default>
+                  <initialIndex>-1</initialIndex>
+                  <deviceValueKey>4703ad64-a0fa-4c56-8671-899f0492a0f3</deviceValueKey>
+                  <name>minutes</name>
+                </default>
+              </userVariable>
+            </userVariable>
+          </userVariables>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
+        <object type="Sprite" spriteId="bfefe84f-ddde-4893-87bc-f44a4b252753" name="time">
+          <lookList>
+            <look fileName="Мой актер или объект_#12.png" lookId="922af249-a0ee-4cda-86e6-19a62444e9af" name="programms_panel">
+              <isWebRequest>false</isWebRequest>
+              <valid>true</valid>
+            </look>
+          </lookList>
+          <soundList/>
+          <scriptList>
+            <script type="StartScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideBrick">
+                  <brickId>7f0c170e-b125-4210-9181-78c1bb731632</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>b5a273a7-4c94-486c-b3d0-a88c7de8ca68</scriptId>
+            </script>
+            <script type="WhenScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="IfLogicBeginBrick">
+                  <brickId>b6100e2b-b85a-4638-bcee-405dd72b11a0</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="IF_CONDITION">
+                      <additionalChildren/>
+                      <leftChild>
+                        <additionalChildren/>
+                        <type>USER_VARIABLE</type>
+                        <value>logic_clock_bar</value>
+                      </leftChild>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>0</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>EQUAL</value>
+                    </formula>
+                  </formulaList>
+                  <elseBranchBricks>
+                    <brick type="SetVariableBrick">
+                      <brickId>016a1e35-5f8e-4e7a-8264-1f60c0a39cf6</brickId>
+                      <commentedOut>false</commentedOut>
+                      <formulaList>
+                        <formula category="VARIABLE">
+                          <additionalChildren/>
+                          <type>NUMBER</type>
+                          <value>0</value>
+                        </formula>
+                      </formulaList>
+                      <userVariable type="UserVariable" serialization="custom">
+                        <userVariable>
+                          <default>
+                            <initialIndex>2</initialIndex>
+                            <deviceValueKey>52fe1ddb-d154-43bf-a2f0-42141c446e31</deviceValueKey>
+                            <name>logic_clock_bar</name>
+                          </default>
+                        </userVariable>
+                      </userVariable>
+                    </brick>
+                    <brick type="BroadcastBrick">
+                      <brickId>e9d8f5ed-cdce-412e-856f-e694580c32f4</brickId>
+                      <commentedOut>false</commentedOut>
+                      <broadcastMessage>close_clock</broadcastMessage>
+                    </brick>
+                  </elseBranchBricks>
+                  <ifBranchBricks>
+                    <brick type="SetVariableBrick">
+                      <brickId>c1b4acdd-4b4a-4f2d-8787-9e335050ee04</brickId>
+                      <commentedOut>false</commentedOut>
+                      <formulaList>
+                        <formula category="VARIABLE">
+                          <additionalChildren/>
+                          <type>NUMBER</type>
+                          <value>1.0</value>
+                        </formula>
+                      </formulaList>
+                      <userVariable reference="../../../elseBranchBricks/brick/userVariable"/>
+                    </brick>
+                    <brick type="BroadcastBrick">
+                      <brickId>ef82b82e-9f81-4ead-9404-a1655a50e687</brickId>
+                      <commentedOut>false</commentedOut>
+                      <broadcastMessage>open_clock</broadcastMessage>
+                    </brick>
+                  </ifBranchBricks>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>d8c9ef08-d2c6-4d2e-b784-84467fd61f31</scriptId>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="PlaceAtBrick">
+                  <brickId>a3099a25-89f0-43a7-a299-a1336c6a8f56</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>300</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>615</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="ShowBrick">
+                  <brickId>14253a81-1d98-4da0-9e5b-81b01c938232</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+                <brick type="PointInDirectionBrick">
+                  <brickId>e382d632-6ec3-4dcc-8ddd-9d7815ad4686</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="DEGREES">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>90.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="SetSizeToBrick">
+                  <brickId>5f7ee302-1509-4ec3-999b-7b1cb4ccc4d5</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="SIZE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>100.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="ShowTextColorSizeAlignmentBrick">
+                  <brickId>fa034d42-3ecc-46b0-8644-1ed3b02650da</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="COLOR">
+                      <additionalChildren/>
+                      <type>STRING</type>
+                      <value>#A3A3A3</value>
+                    </formula>
+                    <formula category="SIZE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>110</value>
+                    </formula>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>310</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>636</value>
+                    </formula>
+                  </formulaList>
+                  <userVariable type="UserVariable" serialization="custom">
+                    <userVariable>
+                      <default>
+                        <initialIndex>-1</initialIndex>
+                        <deviceValueKey>b5e9a944-ee09-47a7-9a2f-d9401cc1c469</deviceValueKey>
+                        <name>clock</name>
+                      </default>
+                    </userVariable>
+                  </userVariable>
+                  <alignmentSelection>1</alignmentSelection>
+                </brick>
+                <brick type="ForeverBrick">
+                  <brickId>09c3171e-78d2-4c4f-a0e9-1207c8a2a668</brickId>
+                  <commentedOut>false</commentedOut>
+                  <loopBricks>
+                    <brick type="SetVariableBrick">
+                      <brickId>bb3a8be3-9b16-4279-be1a-67f7e3f6d995</brickId>
+                      <commentedOut>false</commentedOut>
+                      <formulaList>
+                        <formula category="VARIABLE">
+                          <additionalChildren/>
+                          <type>SENSOR</type>
+                          <value>TIME_MINUTE</value>
+                        </formula>
+                      </formulaList>
+                      <userVariable type="UserVariable" serialization="custom">
+                        <userVariable>
+                          <default>
+                            <initialIndex>1</initialIndex>
+                            <deviceValueKey>5874f4b4-1388-4ffb-b0c2-e9573fe779ff</deviceValueKey>
+                            <name>minutes</name>
+                          </default>
+                        </userVariable>
+                      </userVariable>
+                    </brick>
+                    <brick type="SetVariableBrick">
+                      <brickId>8a07312f-a4d2-4cf0-99a5-1576659a6363</brickId>
+                      <commentedOut>false</commentedOut>
+                      <formulaList>
+                        <formula category="VARIABLE">
+                          <additionalChildren>
+                            <org.catrobat.catroid.formulaeditor.FormulaElement>
+                              <additionalChildren/>
+                              <leftChild>
+                                <additionalChildren/>
+                                <type>STRING</type>
+                                <value></value>
+                              </leftChild>
+                              <rightChild>
+                                <additionalChildren/>
+                                <type>USER_VARIABLE</type>
+                                <value>minutes</value>
+                              </rightChild>
+                              <type>FUNCTION</type>
+                              <value>JOIN</value>
+                            </org.catrobat.catroid.formulaeditor.FormulaElement>
+                          </additionalChildren>
+                          <leftChild>
+                            <additionalChildren/>
+                            <type>SENSOR</type>
+                            <value>TIME_HOUR</value>
+                          </leftChild>
+                          <rightChild>
+                            <additionalChildren/>
+                            <type>STRING</type>
+                            <value>:</value>
+                          </rightChild>
+                          <type>FUNCTION</type>
+                          <value>JOIN3</value>
+                        </formula>
+                      </formulaList>
+                      <userVariable reference="../../../../brick[5]/userVariable"/>
+                    </brick>
+                    <brick type="IfLogicBeginBrick">
+                      <brickId>9aa1f9e5-6891-4c7c-94aa-f4fd227d58c4</brickId>
+                      <commentedOut>false</commentedOut>
+                      <formulaList>
+                        <formula category="IF_CONDITION">
+                          <additionalChildren/>
+                          <leftChild>
+                            <additionalChildren/>
+                            <type>USER_VARIABLE</type>
+                            <value>minutes</value>
+                          </leftChild>
+                          <rightChild>
+                            <additionalChildren/>
+                            <type>NUMBER</type>
+                            <value>10</value>
+                          </rightChild>
+                          <type>OPERATOR</type>
+                          <value>SMALLER_THAN</value>
+                        </formula>
+                      </formulaList>
+                      <elseBranchBricks>
+                        <brick type="SetVariableBrick">
+                          <brickId>64c118aa-b205-432c-9cd8-0f2b9142a69e</brickId>
+                          <commentedOut>false</commentedOut>
+                          <formulaList>
+                            <formula category="VARIABLE">
+                              <additionalChildren>
+                                <org.catrobat.catroid.formulaeditor.FormulaElement>
+                                  <additionalChildren/>
+                                  <type>USER_VARIABLE</type>
+                                  <value>minutes</value>
+                                </org.catrobat.catroid.formulaeditor.FormulaElement>
+                              </additionalChildren>
+                              <leftChild>
+                                <additionalChildren/>
+                                <type>SENSOR</type>
+                                <value>TIME_HOUR</value>
+                              </leftChild>
+                              <rightChild>
+                                <additionalChildren/>
+                                <type>STRING</type>
+                                <value>:</value>
+                              </rightChild>
+                              <type>FUNCTION</type>
+                              <value>JOIN3</value>
+                            </formula>
+                          </formulaList>
+                          <userVariable reference="../../../../../../../../script[2]/brickList/brick/elseBranchBricks/brick/userVariable"/>
+                        </brick>
+                        <brick type="ForeverBrick">
+                          <brickId>bf8fd189-dab3-4b1c-9dfb-64c74c5cda05</brickId>
+                          <commentedOut>false</commentedOut>
+                          <loopBricks/>
+                        </brick>
+                      </elseBranchBricks>
+                      <ifBranchBricks>
+                        <brick type="ForeverBrick">
+                          <brickId>f3e83990-63b5-471c-8a1a-ece2250926f3</brickId>
+                          <commentedOut>false</commentedOut>
+                          <loopBricks>
+                            <brick type="SetVariableBrick">
+                              <brickId>c4d69ce2-c8bb-4335-b040-229be80baef6</brickId>
+                              <commentedOut>false</commentedOut>
+                              <formulaList>
+                                <formula category="VARIABLE">
+                                  <additionalChildren>
+                                    <org.catrobat.catroid.formulaeditor.FormulaElement>
+                                      <additionalChildren/>
+                                      <leftChild>
+                                        <additionalChildren/>
+                                        <type>NUMBER</type>
+                                        <value>0</value>
+                                      </leftChild>
+                                      <rightChild>
+                                        <additionalChildren/>
+                                        <type>USER_VARIABLE</type>
+                                        <value>minutes</value>
+                                      </rightChild>
+                                      <type>FUNCTION</type>
+                                      <value>JOIN</value>
+                                    </org.catrobat.catroid.formulaeditor.FormulaElement>
+                                  </additionalChildren>
+                                  <leftChild>
+                                    <additionalChildren/>
+                                    <type>SENSOR</type>
+                                    <value>TIME_HOUR</value>
+                                  </leftChild>
+                                  <rightChild>
+                                    <additionalChildren/>
+                                    <type>STRING</type>
+                                    <value>:</value>
+                                  </rightChild>
+                                  <type>FUNCTION</type>
+                                  <value>JOIN3</value>
+                                </formula>
+                              </formulaList>
+                              <userVariable reference="../../../../../../../../brick[5]/userVariable"/>
+                            </brick>
+                          </loopBricks>
+                        </brick>
+                      </ifBranchBricks>
+                    </brick>
+                  </loopBricks>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>f6820b26-eae1-4e5e-a71b-cc33c8d7ec42</scriptId>
+              <receivedMessage>work_table_start</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="ShowTextColorSizeAlignmentBrick">
+                  <brickId>7ce76d2b-d048-4789-adac-f504d4fe1d4d</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="COLOR">
+                      <additionalChildren/>
+                      <type>STRING</type>
+                      <value>#A3A3A3</value>
+                    </formula>
+                    <formula category="SIZE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>110</value>
+                    </formula>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>310</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>636</value>
+                    </formula>
+                  </formulaList>
+                  <userVariable reference="../../../../script[2]/brickList/brick/elseBranchBricks/brick/userVariable"/>
+                  <alignmentSelection>1</alignmentSelection>
+                </brick>
+                <brick type="ForeverBrick">
+                  <brickId>9baf26a9-0c75-48d0-a049-b1c7b9aa84a0</brickId>
+                  <commentedOut>false</commentedOut>
+                  <loopBricks>
+                    <brick type="SetVariableBrick">
+                      <brickId>d7fe5b90-6cff-4135-a7ed-7bbcb4ebdd86</brickId>
+                      <commentedOut>false</commentedOut>
+                      <formulaList>
+                        <formula category="VARIABLE">
+                          <additionalChildren/>
+                          <type>SENSOR</type>
+                          <value>TIME_MINUTE</value>
+                        </formula>
+                      </formulaList>
+                      <userVariable reference="../../../../../../script[3]/brickList/brick[6]/loopBricks/brick/userVariable"/>
+                    </brick>
+                    <brick type="ShowBrick">
+                      <brickId>e9c90bad-c168-4c5e-9a0b-4adcf4ba0a3b</brickId>
+                      <commentedOut>false</commentedOut>
+                    </brick>
+                    <brick type="IfLogicBeginBrick">
+                      <brickId>e0004f0b-222e-46c2-8040-40d6924af6e6</brickId>
+                      <commentedOut>false</commentedOut>
+                      <formulaList>
+                        <formula category="IF_CONDITION">
+                          <additionalChildren/>
+                          <leftChild>
+                            <additionalChildren/>
+                            <type>USER_VARIABLE</type>
+                            <value>minutes</value>
+                          </leftChild>
+                          <rightChild>
+                            <additionalChildren/>
+                            <type>NUMBER</type>
+                            <value>10</value>
+                          </rightChild>
+                          <type>OPERATOR</type>
+                          <value>SMALLER_THAN</value>
+                        </formula>
+                      </formulaList>
+                      <elseBranchBricks>
+                        <brick type="SetVariableBrick">
+                          <brickId>b7a5bbc5-d744-47d0-97c3-1a86982c641b</brickId>
+                          <commentedOut>false</commentedOut>
+                          <formulaList>
+                            <formula category="VARIABLE">
+                              <additionalChildren>
+                                <org.catrobat.catroid.formulaeditor.FormulaElement>
+                                  <additionalChildren/>
+                                  <type>USER_VARIABLE</type>
+                                  <value>minutes</value>
+                                </org.catrobat.catroid.formulaeditor.FormulaElement>
+                              </additionalChildren>
+                              <leftChild>
+                                <additionalChildren/>
+                                <type>SENSOR</type>
+                                <value>TIME_HOUR</value>
+                              </leftChild>
+                              <rightChild>
+                                <additionalChildren/>
+                                <type>STRING</type>
+                                <value>:</value>
+                              </rightChild>
+                              <type>FUNCTION</type>
+                              <value>JOIN3</value>
+                            </formula>
+                          </formulaList>
+                          <userVariable reference="../../../../../../../../script[2]/brickList/brick/elseBranchBricks/brick/userVariable"/>
+                        </brick>
+                        <brick type="ForeverBrick">
+                          <brickId>1a3d6f5b-2e9f-4afd-840e-376bc13ac645</brickId>
+                          <commentedOut>false</commentedOut>
+                          <loopBricks/>
+                        </brick>
+                      </elseBranchBricks>
+                      <ifBranchBricks>
+                        <brick type="ForeverBrick">
+                          <brickId>855258f5-0a9b-4312-b537-0add156b67d4</brickId>
+                          <commentedOut>false</commentedOut>
+                          <loopBricks>
+                            <brick type="SetVariableBrick">
+                              <brickId>ef845a61-2e11-422a-b040-a637f9395c14</brickId>
+                              <commentedOut>false</commentedOut>
+                              <formulaList>
+                                <formula category="VARIABLE">
+                                  <additionalChildren>
+                                    <org.catrobat.catroid.formulaeditor.FormulaElement>
+                                      <additionalChildren/>
+                                      <leftChild>
+                                        <additionalChildren/>
+                                        <type>NUMBER</type>
+                                        <value>0</value>
+                                      </leftChild>
+                                      <rightChild>
+                                        <additionalChildren/>
+                                        <type>USER_VARIABLE</type>
+                                        <value>minutes</value>
+                                      </rightChild>
+                                      <type>FUNCTION</type>
+                                      <value>JOIN</value>
+                                    </org.catrobat.catroid.formulaeditor.FormulaElement>
+                                  </additionalChildren>
+                                  <leftChild>
+                                    <additionalChildren/>
+                                    <type>SENSOR</type>
+                                    <value>TIME_HOUR</value>
+                                  </leftChild>
+                                  <rightChild>
+                                    <additionalChildren/>
+                                    <type>STRING</type>
+                                    <value>:</value>
+                                  </rightChild>
+                                  <type>FUNCTION</type>
+                                  <value>JOIN3</value>
+                                </formula>
+                              </formulaList>
+                              <userVariable reference="../../../../../../../../../../script[2]/brickList/brick/elseBranchBricks/brick/userVariable"/>
+                            </brick>
+                          </loopBricks>
+                        </brick>
+                      </ifBranchBricks>
+                    </brick>
+                  </loopBricks>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>8ad3c5c8-ca4f-40b7-b022-642e9c4f3bfa</scriptId>
+              <receivedMessage>show_todo_panel</receivedMessage>
+            </script>
+            <script type="BroadcastScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="HideTextBrick">
+                  <brickId>73b71dc4-f29f-4d74-8900-e27415500d52</brickId>
+                  <commentedOut>false</commentedOut>
+                  <userVariable reference="../../../../script[2]/brickList/brick/elseBranchBricks/brick/userVariable"/>
+                </brick>
+                <brick type="HideBrick">
+                  <brickId>66f17d18-98bc-4730-8182-971b003dc5ff</brickId>
+                  <commentedOut>false</commentedOut>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>00f1f845-530d-473d-a2b6-d745d560b1c3</scriptId>
+              <receivedMessage>hide_todo_panel</receivedMessage>
+            </script>
+          </scriptList>
+          <nfcTagList/>
+          <userVariables>
+            <userVariable reference="../../scriptList/script[3]/brickList/brick[6]/loopBricks/brick/userVariable"/>
+            <userVariable reference="../../scriptList/script[2]/brickList/brick/elseBranchBricks/brick/userVariable"/>
+            <userVariable reference="../../scriptList/script[3]/brickList/brick[5]/userVariable"/>
+          </userVariables>
           <userLists/>
           <userDefinedBrickList/>
         </object>
@@ -2263,7 +3114,7 @@ Please wait while the system prepares for first use.</value>
                     <brick type="GoToBrick">
                       <brickId>2fe65803-73c4-4c2f-81df-c0b4ae73b4fc</brickId>
                       <commentedOut>false</commentedOut>
-                      <destinationSprite reference="../../../../../../../../object[8]"/>
+                      <destinationSprite reference="../../../../../../../../object[9]"/>
                       <spinnerSelection>80</spinnerSelection>
                     </brick>
                   </loopBricks>
@@ -2281,9 +3132,28 @@ Please wait while the system prepares for first use.</value>
           <userLists/>
           <userDefinedBrickList/>
         </object>
-        <object type="Sprite" spriteId="83ccd617-e57c-4fd0-a5fc-063c40ba0aff" name="terminal_window">
+      </objectList>
+    </scene>
+    <scene sceneId="e86ac9a3-f5b3-4676-aec5-2facf77b6513">
+      <name>bios</name>
+      <objectList>
+        <object type="Sprite" spriteId="eac6a344-5358-4010-b200-d8c3b3e18514" name="Фон">
           <lookList>
-            <look fileName="Мой актер или объект_#2.png" lookId="eb705033-a55e-4bc7-a351-dde49bc6490e" name="terminal_window">
+            <look fileName="Фон.png" lookId="9d45098d-ebc6-480e-b55c-6fb70db3a3ba" name="Фон">
+              <isWebRequest>false</isWebRequest>
+              <valid>true</valid>
+            </look>
+          </lookList>
+          <soundList/>
+          <scriptList/>
+          <nfcTagList/>
+          <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
+        <object type="Sprite" spriteId="84018ec0-047b-4de5-b8bd-2aa60138d26b" name="button">
+          <lookList>
+            <look fileName="Мой актер или объект.png" lookId="d84afa94-76c0-417a-ad6d-da844b618dcd" name="button">
               <isWebRequest>false</isWebRequest>
               <valid>true</valid>
             </look>
@@ -2292,37 +3162,232 @@ Please wait while the system prepares for first use.</value>
           <scriptList>
             <script type="StartScript" posX="0.0" posY="0.0">
               <brickList>
-                <brick type="HideBrick">
-                  <brickId>96b9a75d-ed0e-4fb8-8c0a-272a1b8f7b53</brickId>
+                <brick type="PlaceAtBrick">
+                  <brickId>4a1c6b49-96ef-4201-8b4d-432e960d5983</brickId>
                   <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>25</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>480</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="PointInDirectionBrick">
+                  <brickId>fcda4e2b-96f9-4bf5-ad1d-0b5d2aea84cf</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="DEGREES">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>90.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="SetSizeToBrick">
+                  <brickId>8a6b107e-19bc-437f-a567-7944de5b8d1e</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="SIZE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>100.0</value>
+                    </formula>
+                  </formulaList>
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
-              <scriptId>e9a554ed-d5ee-4a94-867d-ad16f30125a4</scriptId>
+              <scriptId>3ceb44bc-8ba1-4e8d-bd45-d5436856b020</scriptId>
             </script>
-            <script type="BroadcastScript" posX="0.0" posY="0.0">
+            <script type="WhenScript" posX="0.0" posY="0.0">
               <brickList>
-                <brick type="ShowBrick">
-                  <brickId>76afef8f-7eb2-442e-84a4-1f14da52566d</brickId>
+                <brick type="SceneStartBrick">
+                  <brickId>b19834ad-2c1f-4731-8e11-0d4f79284881</brickId>
                   <commentedOut>false</commentedOut>
+                  <sceneToStart>install windows</sceneToStart>
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
-              <scriptId>4567f791-6d4a-4b4f-9304-a159e7dce1de</scriptId>
-              <receivedMessage>open_terminal</receivedMessage>
-            </script>
-            <script type="BroadcastScript" posX="0.0" posY="0.0">
-              <brickList>
-                <brick type="HideBrick">
-                  <brickId>e5bc7271-1617-47b2-8686-1c1d2e77497f</brickId>
-                  <commentedOut>false</commentedOut>
-                </brick>
-              </brickList>
-              <commentedOut>false</commentedOut>
-              <scriptId>c6939b91-75fa-4fcf-9a68-c120d6aedf6d</scriptId>
-              <receivedMessage>close_terminal</receivedMessage>
+              <scriptId>0567d324-913e-4f84-a349-510938fceb39</scriptId>
             </script>
           </scriptList>
+          <nfcTagList/>
+          <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
+        <object type="Sprite" spriteId="5f5133cb-d2de-4000-ae43-dad65cdbe1f0" name="button (1)">
+          <lookList>
+            <look fileName="Мой актер или объект_#1.png" lookId="072c6b2f-131f-4ed0-8ce3-64e14095c296" name="button">
+              <isWebRequest>false</isWebRequest>
+              <valid>true</valid>
+            </look>
+          </lookList>
+          <soundList/>
+          <scriptList>
+            <script type="StartScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="PlaceAtBrick">
+                  <brickId>e246922f-0a7f-4a8d-aa89-11e9feae68d3</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>25</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>480</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="PointInDirectionBrick">
+                  <brickId>813acefe-19e7-4863-bef5-afe99bd1261a</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="DEGREES">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>90.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="SetSizeToBrick">
+                  <brickId>2f47c553-6035-4ae2-ae82-9c238c88f9b7</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="SIZE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>100.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>d8ac62a3-7efb-4913-9076-87e495632de6</scriptId>
+            </script>
+            <script type="WhenScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="SceneStartBrick">
+                  <brickId>ef382886-f612-4d68-a26f-3f50b4ad09b2</brickId>
+                  <commentedOut>false</commentedOut>
+                  <sceneToStart>Linux_tinycore</sceneToStart>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>800292c1-bb12-42d0-abde-c883687d722d</scriptId>
+            </script>
+          </scriptList>
+          <nfcTagList/>
+          <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
+        <object type="Sprite" spriteId="5b20cf8a-acff-4741-b03f-9faa7169dbc4" name="&lt;Q&gt;">
+          <lookList>
+            <look fileName="Мой актер или объект_#0.png" lookId="9b1be8f2-a611-4e5e-ae5e-86418b88baa8" name="&lt;Q&gt;">
+              <isWebRequest>false</isWebRequest>
+              <valid>true</valid>
+            </look>
+          </lookList>
+          <soundList/>
+          <scriptList>
+            <script type="StartScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="PlaceAtBrick">
+                  <brickId>02bc855d-38b0-4fca-a654-8c90eef8a8a8</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="Y_POSITION">
+                      <additionalChildren/>
+                      <rightChild>
+                        <additionalChildren/>
+                        <type>NUMBER</type>
+                        <value>215</value>
+                      </rightChild>
+                      <type>OPERATOR</type>
+                      <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>635</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="PointInDirectionBrick">
+                  <brickId>95f150d1-cfe2-41ff-beb9-19153bc9c239</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="DEGREES">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>90.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="SetSizeToBrick">
+                  <brickId>d6c37f45-a25b-4f8c-89ab-2dbd018d4751</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="SIZE">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>100.0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>f896c363-2d3d-43f4-89db-4e31201a7c5f</scriptId>
+            </script>
+          </scriptList>
+          <nfcTagList/>
+          <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
+      </objectList>
+    </scene>
+    <scene sceneId="ebfbe8f9-ed8e-4969-b670-6c91c2c5a390">
+      <name>install windows</name>
+      <objectList>
+        <object type="Sprite" spriteId="b07a9a14-5be0-4200-831d-bbe5dcfe3604" name="Фон">
+          <lookList/>
+          <soundList/>
+          <scriptList/>
+          <nfcTagList/>
+          <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
+      </objectList>
+    </scene>
+    <scene sceneId="ef0dbfe5-3517-419a-9c45-25e9d103f9a8">
+      <name>Linux_tinycore</name>
+      <objectList>
+        <object type="Sprite" spriteId="f53d7691-5c3e-42f4-8a2b-5ec8e5e1f4ab" name="Фон">
+          <lookList/>
+          <soundList/>
+          <scriptList/>
           <nfcTagList/>
           <userVariables/>
           <userLists/>
@@ -2400,7 +3465,7 @@ Please wait while the system prepares for first use.</value>
                     <formula category="SIZE">
                       <additionalChildren/>
                       <type>NUMBER</type>
-                      <value>60.0</value>
+                      <value>90</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -2408,20 +3473,31 @@ Please wait while the system prepares for first use.</value>
                   <brickId>20e736ca-03b2-4599-8298-41f90ee58193</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
-                    <formula category="X_POSITION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>0</value>
-                    </formula>
                     <formula category="Y_POSITION">
                       <additionalChildren/>
                       <rightChild>
                         <additionalChildren/>
                         <type>NUMBER</type>
-                        <value>60</value>
+                        <value>80</value>
                       </rightChild>
                       <type>OPERATOR</type>
                       <value>MINUS</value>
+                    </formula>
+                    <formula category="X_POSITION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>0</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+                <brick type="PointInDirectionBrick">
+                  <brickId>433cc3ae-dfc6-4eb3-ae00-22213c5b0977</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="DEGREES">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>90.0</value>
                     </formula>
                   </formulaList>
                 </brick>
@@ -2452,7 +3528,7 @@ Please wait while the system prepares for first use.</value>
                         <formula category="TURN_RIGHT_DEGREES">
                           <additionalChildren/>
                           <type>NUMBER</type>
-                          <value>15.0</value>
+                          <value>10</value>
                         </formula>
                       </formulaList>
                     </brick>
@@ -2477,11 +3553,34 @@ Please wait while the system prepares for first use.</value>
           <userLists/>
           <userDefinedBrickList/>
         </object>
+        <object type="Sprite" spriteId="cf7dcae3-07d5-4d8c-82f7-bafcb8ac8dca" name="shutdown">
+          <lookList>
+            <look fileName="Мой актер или объект.png" lookId="9281b1ea-8f46-422a-8f33-fefa302d46a6" name="shutdown">
+              <isWebRequest>false</isWebRequest>
+              <valid>true</valid>
+            </look>
+          </lookList>
+          <soundList/>
+          <scriptList/>
+          <nfcTagList/>
+          <userVariables/>
+          <userLists/>
+          <userDefinedBrickList/>
+        </object>
       </objectList>
     </scene>
   </scenes>
   <programVariableList>
     <userVariable reference="../../scenes/scene/objectList/object/scriptList/script[2]/brickList/brick[2]/loopBricks/brick/userVariable"/>
+    <userVariable type="UserVariable" serialization="custom">
+      <userVariable>
+        <default>
+          <initialIndex>1</initialIndex>
+          <deviceValueKey>933c32f2-1b5e-4558-8e10-45f7f980992a</deviceValueKey>
+          <name>vm</name>
+        </default>
+      </userVariable>
+    </userVariable>
   </programVariableList>
   <programListOfLists/>
   <programMultiplayerVariableList/>
